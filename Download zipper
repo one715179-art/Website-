@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download File</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body {
+    background: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  header {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    padding: 20px 0;
+  }
+  header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+  }
+  .container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .file-info h2 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .file-info p {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .ad-box {
+    background: #e9ecef;
+    border: 2px dashed #adb5bd;
+    border-radius: 8px;
+    padding: 30px 10px;
+    margin: 20px 0;
+    color: #6c757d;
+    font-size: 14px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .action-area {
+    margin-top: 20px;
+  }
+  .timer-box {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .timer-box span {
+    font-size: 22px;
+    color: #d9534f;
+  }
+  .download-btn {
+    display: none;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .download-btn:hover {
+    background: #218838;
+  }
+  footer {
+    margin-top: 30px;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📥 File Download Center</h1>
+</header>
+
+<div class="container">
+  <div class="ad-box">
+    Ad Space (Top Banner) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<div class="container">
+  <div class="file-info">
+    <h2>File Name: example-file.zip</h2>
+    <p>Size: 25 MB | Format: ZIP</p>
+  </div>
+
+  <div class="ad-box">
+    Ad Space (Middle Ad) — Yahan apna ad code paste karo
+  </div>
+
+  <div class="action-area">
+    <div class="timer-box" id="timerBox">
+      ⏳ Please wait <span id="countdown">15</span> seconds...
+    </div>
+    <a href="https://your-direct-file-link.com/file.zip" class="download-btn" id="downloadBtn" target="_blank">
+      ⬇️ Download Now
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="ad-box">
+    Ad Space (Bottom Banner) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 My Download Site | All files are property of their respective owners</p>
+</footer>
+
+<script>
+  let timeLeft = 15;
+  const countdownEl = document.getElementById('countdown');
+  const timerBox = document.getElementById('timerBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  const timer = setInterval(() => {
+    timeLeft--;
+    countdownEl.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      timerBox.style.display = 'none';
+      downloadBtn.style.display = 'inline-block';
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
