@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download File</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', monospace; }
+  body {
+    background: #0d0d0d;
+    color: #00ff7f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  header {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #00ff7f;
+  }
+  header h1 {
+    color: #00ff7f;
+    font-size: 26px;
+    text-shadow: 0 0 8px #00ff7f;
+    letter-spacing: 2px;
+  }
+  .container {
+    background: #1a1a1a;
+    border: 1px solid #00ff7f;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,255,127,0.2);
+    padding: 25px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .file-info h2 {
+    color: #00ff7f;
+    margin-bottom: 8px;
+    font-size: 18px;
+    word-break: break-word;
+  }
+  .file-info p {
+    color: #7fffaa;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  .ad-box {
+    background: #111;
+    border: 2px dashed #00ff7f;
+    border-radius: 8px;
+    padding: 40px 10px;
+    margin: 25px 0;
+    color: #00ff7f;
+    font-size: 14px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ad-box.large {
+    min-height: 250px;
+  }
+
+  .action-area {
+    margin-top: 20px;
+  }
+  .timer-box {
+    background: #1a1a1a;
+    color: #00ff7f;
+    border: 1px solid #00ff7f;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .timer-box span {
+    font-size: 22px;
+    color: #ff4444;
+  }
+  .download-btn {
+    display: none;
+    background: #00ff7f;
+    color: #0d0d0d;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00ff7f;
+  }
+  .download-btn:hover {
+    background: #00cc66;
+  }
+  footer {
+    margin-top: 30px;
+    color: #555;
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .popup-overlay {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .popup-box {
+    background: #1a1a1a;
+    border: 2px solid #00ff7f;
+    border-radius: 10px;
+    padding: 25px;
+    max-width: 90%;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,255,127,0.4);
+    position: relative;
+  }
+  .popup-ad-content {
+    background: #111;
+    border: 2px dashed #00ff7f;
+    border-radius: 8px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff7f;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .popup-close {
+    background: #00ff7f;
+    color: #0d0d0d;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .popup-close:hover {
+    background: #00cc66;
+  }
+</style>
+</head>
+<body>
+
+<div class="popup-overlay" id="popupAd">
+  <div class="popup-box">
+    <div class="popup-ad-content">
+      <!-- 👉 Apna POPUP AD CODE yahan paste karo -->
+      Popup Ad Space — Yahan apna ad code paste karo
+    </div>
+    <button class="popup-close" onclick="document.getElementById('popupAd').style.display='none'">Close [X]</button>
+  </div>
+</div>
+
+<header>
+  <h1>&gt;_ FILE DOWNLOAD CENTER</h1>
+</header>
+
+<div class="container">
+  <div class="ad-box">
+    <!-- 👉 Apna AD CODE (Top Banner) yahan paste karo -->
+    Ad Space (Top Banner) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<div class="container">
+  <div class="file-info">
+    <h2>Quran - Roman Urdu &amp; Hindi (PDF)</h2>
+    <p>Format: PDF | Source: MediaFire</p>
+  </div>
+
+  <div class="ad-box large">
+    <!-- 👉 Apna AD CODE (Large Display Ad) yahan paste karo -->
+    Ad Space (Large Display Ad) — Yahan apna ad code paste karo
+  </div>
+
+  <div class="action-area">
+    <div class="timer-box" id="timerBox">
+      ⏳ Please wait <span id="countdown">15</span> seconds...
+    </div>
+    <a href="https://www.mediafire.com/file/b6vracfvpgelqx0/quran-roman-urdu-hindi.pdf/file" class="download-btn" id="downloadBtn" target="_blank">
+      ⬇ DOWNLOAD NOW
+    </a>
+  </div>
+
+  <div class="ad-box">
+    <!-- 👉 Apna AD CODE (Native Ad) yahan paste karo -->
+    Ad Space (Native Ad) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<div class="container">
+  <div class="ad-box large">
+    <!-- 👉 Apna AD CODE (Bottom Large Banner) yahan paste karo -->
+    Ad Space (Bottom Large Banner) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<div class="container">
+  <div class="ad-box">
+    <!-- 👉 Apna AD CODE (Extra Banner) yahan paste karo -->
+    Ad Space (Extra Banner) — Yahan apna ad code paste karo
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 File Download Center | All files property of their respective owners</p>
+</footer>
+
+<script>
+  let timeLeft = 15;
+  const countdownEl = document.getElementById('countdown');
+  const timerBox = document.getElementById('timerBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  const timer = setInterval(() => {
+    timeLeft--;
+    countdownEl.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      timerBox.style.display = 'none';
+      downloadBtn.style.display = 'inline-block';
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
